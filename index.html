@@ -24,7 +24,6 @@
     cursor: none;
   }
 
-  /* CUSTOM CURSOR */
   #cursor {
     position: fixed;
     width: 12px; height: 12px;
@@ -47,7 +46,6 @@
     transition: width 0.2s, height 0.2s, border-color 0.2s;
   }
 
-  /* CANVAS BG */
   #bg-canvas {
     position: fixed;
     inset: 0;
@@ -55,7 +53,6 @@
     pointer-events: none;
   }
 
-  /* PARTICLE TRAIL */
   .trail-dot {
     position: fixed;
     width: 6px; height: 6px;
@@ -71,7 +68,6 @@
     to   { opacity: 0; transform: translate(-50%,-50%) scale(0); }
   }
 
-  /* CLICK EXPLOSION */
   .explode {
     position: fixed;
     pointer-events: none;
@@ -102,7 +98,6 @@
     to   { opacity: 0; transform: var(--end-pos) scale(0); }
   }
 
-  /* LAYOUT */
   .page {
     position: relative;
     z-index: 1;
@@ -113,7 +108,6 @@
     padding: 60px 20px 80px;
   }
 
-  /* CARD */
   .card {
     width: 100%;
     max-width: 400px;
@@ -139,7 +133,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* AVATAR */
   .avatar-wrap {
     display: flex;
     flex-direction: column;
@@ -177,7 +170,6 @@
     100% { transform: scale(1) rotate(360deg); }
   }
 
-  /* EGG POPUP */
   #egg-popup {
     position: fixed;
     top: 50%; left: 50%;
@@ -208,7 +200,6 @@
     color: rgba(255,255,255,0.4);
   }
 
-  /* USERNAME */
   .username {
     font-family: 'Syne', sans-serif;
     font-weight: 800;
@@ -244,7 +235,6 @@
     min-height: 40px;
   }
 
-  /* TYPING CURSOR */
   .type-cursor {
     display: inline-block;
     width: 2px;
@@ -262,7 +252,6 @@
     margin: 24px 0;
   }
 
-  /* LINKS */
   .links {
     display: flex;
     flex-direction: column;
@@ -302,9 +291,7 @@
     transform: translateY(-2px) scale(1.01);
     box-shadow: 0 8px 30px rgba(100,220,80,0.08);
   }
-  .link-btn:active {
-    transform: scale(0.97);
-  }
+  .link-btn:active { transform: scale(0.97); }
 
   .icon {
     width: 34px; height: 34px;
@@ -332,7 +319,6 @@
     transform: translate(2px,-2px);
   }
 
-  /* MUSIC PLAYER */
   .music-bar {
     width: 100%;
     max-width: 400px;
@@ -358,7 +344,6 @@
     transition: background 0.2s, transform 0.2s;
   }
   .music-btn:hover { background: rgba(100,220,80,0.25); transform: scale(1.1); }
-  .music-btn svg { transition: transform 0.2s; }
   .music-info { flex: 1; overflow: hidden; }
   .music-title {
     font-size: 12px;
@@ -386,7 +371,6 @@
     background: var(--green);
     border-radius: 2px;
     opacity: 0.4;
-    animation: none;
     height: 4px;
     transition: opacity 0.3s;
   }
@@ -400,10 +384,7 @@
   @keyframes bar2 { from{height:6px} to{height:12px} }
   @keyframes bar3 { from{height:2px} to{height:18px} }
 
-  /* VOLUME */
-  .vol-wrap {
-    display: flex; align-items: center; gap: 6px;
-  }
+  .vol-wrap { display: flex; align-items: center; gap: 6px; }
   .vol-wrap svg { opacity: 0.4; flex-shrink: 0; }
   input[type=range].vol {
     -webkit-appearance: none;
@@ -421,7 +402,34 @@
     cursor: none;
   }
 
-  /* FOOTER */
+  .now-playing-bar {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid rgba(100,220,80,0.2);
+    border-radius: 16px;
+    padding: 12px 20px;
+    display: none;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp 0.8s 0.55s cubic-bezier(.22,1,.36,1) both;
+  }
+  .now-playing-bar.visible { display: flex; }
+  .np-art {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .np-live {
+    font-size: 10px;
+    color: rgba(100,220,80,0.7);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
   .footer {
     margin-top: 32px;
     font-size: 11px;
@@ -433,7 +441,6 @@
     position: relative;
   }
 
-  /* TOAST */
   #toast {
     position: fixed;
     bottom: 32px; left: 50%;
@@ -460,11 +467,10 @@
 
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
-
 <canvas id="bg-canvas"></canvas>
 
 <div id="egg-popup">
-  <p>hey </p>
+  <p>hey</p>
   <small>you found the easter egg lol</small>
 </div>
 
@@ -478,12 +484,7 @@
   <div class="card">
     <div class="avatar-wrap">
       <div class="avatar-container" id="avatar-container">
-        <img
-          class="avatar"
-          id="avatar"
-          src="pfp.png"
-          alt="fishstickvrr"
-        />
+        <img class="avatar" id="avatar" src="./pfp.png" alt="fishstickvrr"/>
       </div>
       <div class="username">fishstickvrr</div>
       <div class="badge">not locked in</div>
@@ -515,8 +516,7 @@
     </div>
   </div>
 
-  <!-- MUSIC PLAYER -->
-  <div class="music-bar" id="music-bar">
+  <div class="music-bar">
     <button class="music-btn" id="play-btn" aria-label="Play/Pause">
       <svg id="play-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
         <polygon points="5,3 19,12 5,21" fill="rgba(100,220,80,0.9)"/>
@@ -543,11 +543,19 @@
     </div>
   </div>
 
+  <div class="now-playing-bar" id="now-playing-bar">
+    <img class="np-art" id="np-art" src="" alt="album art"/>
+    <div class="music-info">
+      <div class="music-title" id="np-track">—</div>
+      <div class="music-sub" id="np-artist">last.fm</div>
+    </div>
+    <div class="np-live">● live</div>
+  </div>
+
   <div class="footer">fishstickvrr · 2026</div>
 </div>
 
 <script>
-  // CURSOR
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -556,7 +564,6 @@
     cursor.style.left = mx + 'px';
     cursor.style.top = my + 'px';
   });
-  // Smooth ring follow
   function animRing() {
     rx += (mx - rx) * 0.12;
     ry += (my - ry) * 0.12;
@@ -566,7 +573,6 @@
   }
   animRing();
 
-  // CURSOR TRAIL
   let lastTrail = 0;
   document.addEventListener('mousemove', e => {
     const now = Date.now();
@@ -577,12 +583,10 @@
     dot.style.left = e.clientX + 'px';
     dot.style.top = e.clientY + 'px';
     dot.style.width = dot.style.height = (Math.random() * 4 + 3) + 'px';
-    dot.style.opacity = Math.random() * 0.5 + 0.2;
     document.body.appendChild(dot);
     setTimeout(() => dot.remove(), 600);
   });
 
-  // CLICK EXPLOSION
   document.addEventListener('click', e => {
     const wrap = document.createElement('div');
     wrap.className = 'explode';
@@ -591,11 +595,10 @@
     const r = document.createElement('div');
     r.className = 'explode-ring';
     wrap.appendChild(r);
-    const count = 8;
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < 8; i++) {
       const p = document.createElement('div');
       p.className = 'explode-particle';
-      const angle = (360 / count) * i;
+      const angle = (360 / 8) * i;
       const dist = Math.random() * 40 + 20;
       const x = Math.cos(angle * Math.PI / 180) * dist;
       const y = Math.sin(angle * Math.PI / 180) * dist;
@@ -608,16 +611,11 @@
     setTimeout(() => wrap.remove(), 700);
   });
 
-  // BACKGROUND CANVAS — floating particles + aurora
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-
   const particles = Array.from({length: 60}, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
@@ -626,19 +624,14 @@
     vy: (Math.random() - 0.5) * 0.3,
     a: Math.random() * 0.5 + 0.1,
   }));
-
   let t = 0;
   function drawBg() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Aurora
     const grad1 = ctx.createRadialGradient(canvas.width*0.5, -canvas.height*0.1, 0, canvas.width*0.5, -canvas.height*0.1, canvas.height*0.8);
     grad1.addColorStop(0, `rgba(60,180,60,${0.12 + Math.sin(t*0.5)*0.04})`);
     grad1.addColorStop(1, 'transparent');
     ctx.fillStyle = grad1;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Moving aurora streaks
     for (let i = 0; i < 3; i++) {
       const x = canvas.width * (0.2 + i * 0.3 + Math.sin(t * 0.2 + i) * 0.05);
       const g = ctx.createRadialGradient(x, canvas.height * 0.1, 0, x, canvas.height * 0.5, canvas.height * 0.6);
@@ -647,8 +640,6 @@
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
-
-    // Particles
     particles.forEach(p => {
       p.x += p.vx; p.y += p.vy;
       if (p.x < 0) p.x = canvas.width;
@@ -660,45 +651,29 @@
       ctx.fillStyle = `rgba(100,220,80,${p.a * (0.5 + Math.sin(t + p.x) * 0.3)})`;
       ctx.fill();
     });
-
     t += 0.01;
     requestAnimationFrame(drawBg);
   }
   drawBg();
 
-  // TYPING ANIMATION
   const bioEl = document.getElementById('bio');
-  const texts = [
-    'i make gorilla video lolz',
-    'just vibing fr',
-    'not locked in whatsoever',
-    'next video neverrrrrrrr',
-    'e',
-  ];
+  const texts = ['i make gorilla video lolz','just vibing fr','not locked in whatsoever','fishstickvrr on everything'];
   let ti = 0, ci = 0, deleting = false;
   function type() {
     const text = texts[ti];
     if (!deleting) {
       ci++;
       bioEl.innerHTML = text.slice(0, ci) + '<span class="type-cursor"></span>';
-      if (ci === text.length) {
-        deleting = true;
-        setTimeout(type, 2000);
-        return;
-      }
+      if (ci === text.length) { deleting = true; setTimeout(type, 2000); return; }
     } else {
       ci--;
       bioEl.innerHTML = text.slice(0, ci) + '<span class="type-cursor"></span>';
-      if (ci === 0) {
-        deleting = false;
-        ti = (ti + 1) % texts.length;
-      }
+      if (ci === 0) { deleting = false; ti = (ti + 1) % texts.length; }
     }
     setTimeout(type, deleting ? 40 : 70);
   }
   setTimeout(type, 800);
 
-  // AVATAR EASTER EGG
   let eggClicks = 0;
   const egg = document.getElementById('egg-popup');
   document.getElementById('avatar').addEventListener('click', e => {
@@ -717,13 +692,11 @@
   });
   egg.addEventListener('click', () => egg.classList.remove('show'));
 
-  // DISCORD COPY
   document.getElementById('dc-btn').addEventListener('click', e => {
     e.preventDefault();
     navigator.clipboard.writeText('fishstickyt').then(() => showToast('copied fishstickyt ✓'));
   });
 
-  // TOAST
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
@@ -731,7 +704,6 @@
     setTimeout(() => t.classList.remove('show'), 2000);
   }
 
-  // MUSIC PLAYER
   const audio = document.getElementById('bg-audio');
   const playBtn = document.getElementById('play-btn');
   const playIcon = document.getElementById('play-icon');
@@ -739,9 +711,7 @@
   const barsEl = document.getElementById('bars');
   const volSlider = document.getElementById('vol');
   let playing = false;
-
   audio.volume = 0.5;
-
   playBtn.addEventListener('click', () => {
     if (!playing) {
       audio.play().then(() => {
@@ -758,12 +728,29 @@
       barsEl.classList.remove('playing');
     }
   });
+  volSlider.addEventListener('input', () => { audio.volume = volSlider.value; });
 
-  volSlider.addEventListener('input', () => {
-    audio.volume = volSlider.value;
-  });
+  async function fetchNowPlaying() {
+    try {
+      const res = await fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=fishstickk&api_key=2e90b154c5c502be686dee1adcc85b7b&format=json&limit=1');
+      const data = await res.json();
+      const track = data.recenttracks.track[0];
+      const isPlaying = track['@attr']?.nowplaying === 'true';
+      const bar = document.getElementById('now-playing-bar');
+      if (isPlaying) {
+        document.getElementById('np-track').textContent = track.name;
+        document.getElementById('np-artist').textContent = track.artist['#text'];
+        const art = track.image?.[2]?.['#text'];
+        if (art) document.getElementById('np-art').src = art;
+        bar.classList.add('visible');
+      } else {
+        bar.classList.remove('visible');
+      }
+    } catch(e) {}
+  }
+  fetchNowPlaying();
+  setInterval(fetchNowPlaying, 15000);
 
-  // Cursor hover states
   document.querySelectorAll('a, button, input, .music-btn, .avatar-container').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'translate(-50%,-50%) scale(1.8)';
